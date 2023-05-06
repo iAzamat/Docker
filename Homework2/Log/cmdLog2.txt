@@ -1,0 +1,18 @@
+user@user-VB:~$ sudo -i
+root@user-VB:~# nano /var/lib/lxc/test2/config
+root@user-VB:~# reboot
+user@user-VB:~$ sudo -i
+root@user-VB:~# lxc-ls -f
+NAME  STATE   AUTOSTART GROUPS IPV4      IPV6 UNPRIVILEGED
+test2 RUNNING 1         -      10.0.3.87 -    false
+root@user-VB:~# nano /var/lib/lxc/test2/config
+root@user-VB:~# reboot
+user@user-VB:~$ sudo -i
+root@user-VB:~# less /var/log/lxc/test2.log
+[1]+  Остановлен    less /var/log/lxc/test2.log
+root@user-VB:~# exit
+выход
+Есть остановленные задания.
+root@user-VB:~# exit
+выход
+user@user-VB:~$
