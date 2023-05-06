@@ -1,0 +1,22 @@
+
+  130  mkdir hw1
+  131  cd hw1
+  132  mkdir bin lib64 lib
+  133  cp /bin/bash ./bin/
+  134  ldd /bin/bash
+  135  cp /lib/x86_64-linux-gnu/libtinfo.so.6 ./lib
+  136  cp /lib/x86_64-linux-gnu/libc.so.6 ./lib
+  137  cp /lib64/ld-linux-x86-64.so.2 ./lib64/
+  138  cd ..
+  139  ls
+  140  chroot hw1 /bin/bash
+  141  cd hw1
+  142  cp /bin/ls ./bin/
+  143  ldd /bin/ls
+  144  cp /lib/x86_64-linux-gnu/libselinux.so.1 ./lib
+  145  cp /lib/x86_64-linux-gnu/libc.so.6 ./lib
+  146  cp /lib/x86_64-linux-gnu/libpcre2-8.so.0 ./lib
+  147  cp  /lib64/ld-linux-x86-64.so.2 ./lib64
+  148  cd ..
+  149  chroot hw1 /bin/bash
+  150  history >> log.txt
