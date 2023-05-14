@@ -1,0 +1,26 @@
+user@user-VB:~$ sudo -i
+[sudo] пароль для user:
+root@user-VB:~# cd ~
+root@user-VB:~# mkdir test
+root@user-VB:~# mkdir test/folder
+root@user-VB:~# echo -e "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n quis nostrud exercitationullamco laboris nisi ut aliquip ex ea\n commodo consequat. \nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n Excepteur sint occaecat cupidatat non proident, sunt in culpa \n qui officia deserunt mollit anim id est laborum." > test/folder/test.txt
+root@user-VB:~# echo -e "But I must explain to you how all this mistaken idea of denouncing pleasure and praising\n pain was born and I will give you a complete account of the system, and expound the\n actual teachings of the great explorer of the truth, the master-builder of human happiness. No one\n rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.\n Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,\n but becauseoccasionally circumstances occur in which toil and pain can procure him \nsome great pleasure. To take a trivial example, which of us ever undertakes laborious \n physical exercise, except to obtain someadvantage from it? But who has any right to find fault with a man\n who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that\n produces no resultant pleasure?" > ~/test.txt
+root@user-VB:~# docker run -it -h dockerEdu --name testDockerEdu -v /root/test/folder:/otherway -v /root/test.txt:/otherway/test.txt ubuntu:22.10
+Unable to find image 'ubuntu:22.10' locally
+22.10: Pulling from library/ubuntu
+0963d61c5d36: Pull complete
+Digest: sha256:a9a425d086dbb34c1b5b99765596e2a3cc79b33826866c51cd4508d8eb327d2b
+Status: Downloaded newer image for ubuntu:22.10
+root@dockerEdu:/# cd otherway/
+root@dockerEdu:/otherway# cat test.txt
+But I must explain to you how all this mistaken idea of denouncing pleasure and praising
+ pain was born and I will give you a complete account of the system, and expound the
+ actual teachings of the great explorer of the truth, the master-builder of human happiness. No one
+ rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+ Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,
+ but because occasionally circumstances occur in which toil and pain can procure him
+some great pleasure. To take a trivial example, which of us ever undertakes laborious
+ physical exercise, except to obtain some advantage from it? But who has any right to find fault witha man
+ who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that
+ produces no resultant pleasure?
+root@dockerEdu:/otherway#
